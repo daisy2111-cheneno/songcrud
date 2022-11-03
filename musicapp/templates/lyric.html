@@ -10,24 +10,29 @@
             <h5>LYRIC</h5>
         </div>
         <div class="card card-body">
+            <div class="row">
+                <div class="col-md-6">
+                    <p><strong>Artiste ID : </strong> {{lyric.song_id.artiste_id.id}}</p>
+                </div>
+                <div class="col-md-6">
+                    <p> <strong>Artiste : </strong> {{lyric.song_id.artiste_id}}</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <strong>Song ID:</strong> {{lyric.song_id.id}}</p>
+                </div>
+                <div class="col-md-6">
+                    <p><strong>Song :</strong> {{lyric.song_id}}</p>
+                </div>
+            </div>
             <table>
-                <tr>
-                    <td>Artiste ID :</td>
-                    <td>Song ID:</td>
-                </tr>
                 <tr class=" text text-center">
-                    <td>Content</td>
-                </tr>
-                
-                {%  for i in lyrics %}
-                <tr>
-                    <td>{{i.artiste_id}}</td>
-                    <td>{{i.song_id}}</td>
+                    <th>Content</th>
                 </tr>
                 <tr>
-                    <td>{{i.content}}</td>
+                    <td>{{lyric.content}}</td>
                 </tr>
-                {% endfor %}
             </table>
         </div>
     </div>

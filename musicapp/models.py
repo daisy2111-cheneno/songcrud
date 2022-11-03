@@ -32,7 +32,7 @@ class Song(models.Model):
 
 class Lyric(models.Model):
     song_id = models.ForeignKey(Song, on_delete = models.CASCADE)
-    content = models.TextField(null = True)
+    content = models.TextField(null = True, blank = True)
     
 
     def __str__(self):

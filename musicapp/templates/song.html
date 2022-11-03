@@ -17,10 +17,8 @@
             <div class="card card-body">
                 <h5>Contact Information:</h5>
                 <hr>
-                {% for i in songs %}
-                    <p>First Name: {{i.artiste_id.first_name}}</p>
-                    <p>Last Name: {{i.artiste_id.last_name}}</p>
-                {%  endfor %}
+                <p>First Name: {{artist.first_name}}</p>
+                <p>Last Name: {{artist.last_name}}</p>
             </div> 
         </div>
 
@@ -52,6 +50,15 @@
             <h5>SONG:</h5>
         </div>
         <div class="card card-body">
+            <div class="row">
+                <div class="col-2">
+                    <a class="btn btn-primary btn-sm btn-block" href="{% url 'add_song' %}">Add Song</a>
+                </div>
+                <div class="col-2">
+                    <a class="btn btn-primary btn-sm btn-block" href="{% url 'add_lyrics' %}">Add Lyrics</a>
+                </div>
+            </div>
+            <br>
             <table class="table table-striped">
                 <tr data-href="/lyric">
                     <th>Title</a></th>
@@ -60,18 +67,17 @@
                     <th>Artiste ID</th>
                     <th>Lyrics</th>
                     <th>Update</th>
-                    <th>Remove</th>
+                    <th>Delete</th>
                 </tr>
-                
                 {% for j in songs %}
                 <tr>
                     <td>{{j.title}}</td>
                     <td>{{j.date_released}}</td>
                     <td>{{j.likes}}</td>
                     <td>{{j.artiste_id.id}}</td>
-                    <td><a class="btn btn-sm btn-primary" href="lyric/{{j.song_id.id}}">View</a></td>
-                    <td><a class="btn btn-sm btn-primary" href="#">Update</a></td>
-                    <td><a class="btn btn-sm btn-primary" href="#">Delete</a></td>
+                    <td><a class="btn btn-sm btn-info" href="lyric/{{j.id}}">View</a></td>
+                    <td><a class="btn btn-sm btn-primary" href="update_song/{{j.id}}">Update</a></td>
+                    <td><a class="btn btn-sm btn-danger" href="delete_song/{{j.id}}">Delete</a></td>
                 </tr>
                 {%  endfor %}
 
