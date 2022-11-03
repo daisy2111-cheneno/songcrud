@@ -12,20 +12,28 @@
         <h5>ARTISTE:</h5>
         <hr>
         <div class="card card-body">
-            <a class="btn btn-primary btn-sm btn-block" href="#">Add Artiste</a>
+            <div class="col-2">
+                <a class="btn btn-primary btn-sm btn-block" href="{% url 'add_artiste' %}">Add Artiste</a>
+            </div>
+            <br>
             <table class="table table-striped">
                 <tr>
                     <th>First Name</th>
                     <th>Last Name</th>
                     <th>Age</th>
                     <th>Status</th>
+                    <th>Update</th>
+                    <th>Delete</th>
+
                 </tr>
                 {% for i in artists %}
                     <tr>
-                        <td>{{.first_name}}</td>
+                        <td>{{i.first_name}}</td>
                         <td>{{i.last_name}}</td>
                         <td>{{i.age}}</td>
-                        <td><a class="btn btn-sm btn-primary" href="song/{{i.id}}">View</a></td>
+                        <td><a class="btn btn-sm btn-info" href="song/{{i.id}}">View</a></td>
+                        <td><a class="btn btn-sm btn-primary" href="update_artiste/{{i.id}}">Update</a></td>
+                        <td><a class="btn btn-sm btn-danger" href="delete_artiste/{{i.id}}">Delete</a></td>
                     </tr>
                 {%  endfor %}
                 
